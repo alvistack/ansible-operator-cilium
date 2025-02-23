@@ -1,4 +1,4 @@
-# permissions for end users to edit cilia.
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -7,21 +7,21 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: cilium-editor-role
 rules:
-- apiGroups:
-  - alvistack
-  resources:
-  - cilia
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - alvistack
-  resources:
-  - cilia/status
-  verbs:
-  - get
+  - apiGroups:
+      - alvistack
+    resources:
+      - cilia
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - alvistack
+    resources:
+      - cilia/status
+    verbs:
+      - get

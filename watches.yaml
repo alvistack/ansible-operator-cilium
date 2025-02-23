@@ -1,7 +1,5 @@
 ---
-# Use the 'create api' subcommand to add watches to this file.
 - version: v1alpha1
   group: alvistack
   kind: Cilium
   role: cilium
-# +kubebuilder:scaffold:watch

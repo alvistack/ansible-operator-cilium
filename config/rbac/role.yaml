@@ -4,9 +4,6 @@ kind: ClusterRole
 metadata:
   name: manager-role
 rules:
-  ##
-  ## Base operator rules
-  ##
   - apiGroups:
       - ""
     resources:
@@ -37,9 +34,6 @@ rules:
       - patch
       - update
       - watch
-  ##
-  ## Rules for alvistack/v1alpha1, Kind: Cilium
-  ##
   - apiGroups:
       - alvistack
     resources:
@@ -54,4 +48,3 @@ rules:
       - patch
       - update
       - watch
-# +kubebuilder:scaffold:rules

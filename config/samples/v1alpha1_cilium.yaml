@@ -1,3 +1,4 @@
+---
 apiVersion: alvistack/v1alpha1
 kind: Cilium
 metadata:
@@ -6,4 +7,3 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: cilium-sample
 spec:
-  # TODO(user): Add fields here

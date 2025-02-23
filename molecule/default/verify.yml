@@ -2,13 +2,11 @@
 - name: Verify
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
   collections:
     - kubernetes.core
-
   vars:
     ctrl_label: control-plane=controller-manager
-
   tasks:
     - block:
         - name: Import all test files from tasks/
@@ -31,7 +29,6 @@
             - api_version: v1
               kind: ConfigMap
           register: debug_resources
-
         - name: Retrieve Pod logs
           k8s_log:
             name: '{{ item.metadata.name }}'
@@ -39,16 +36,13 @@
             container: manager
           loop: "{{ q('k8s', api_version='v1', kind='Pod', namespace=namespace, label_selector=ctrl_label) }}"
           register: debug_logs
-
         - name: Output gathered resources
           debug:
             var: debug_resources
-
         - name: Output gathered logs
           debug:
             var: item.log_lines
           loop: '{{ debug_logs.results }}'
-
         - name: Re-emit failure
           vars:
             failed_task:

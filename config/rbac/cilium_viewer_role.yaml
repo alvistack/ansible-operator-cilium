@@ -1,4 +1,4 @@
-# permissions for end users to view cilia.
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -7,17 +7,17 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: cilium-viewer-role
 rules:
-- apiGroups:
-  - alvistack
-  resources:
-  - cilia
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - alvistack
-  resources:
-  - cilia/status
-  verbs:
-  - get
+  - apiGroups:
+      - alvistack
+    resources:
+      - cilia
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - alvistack
+    resources:
+      - cilia/status
+    verbs:
+      - get
